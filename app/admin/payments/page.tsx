@@ -92,8 +92,18 @@ const [workers, setWorkers] = useState<Worker[]>([]);
       method: "POST",
       data:payload
      })
-     if(data?.message){
+     
+     console.log(data)
+     if(data?.success){
+
+
       Swal.fire({
+        title:'Success',
+        text:data.message,
+        timer:2000
+      })
+     }{
+        Swal.fire({
         title:'Error',
         text:data.message,
         timer:2000
