@@ -35,14 +35,10 @@ export default function AttendancePage() {
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   setLoading(true);
-
-
   const selectedDate = new Date(date);
   const today = new Date();
-const tomorrow = new Date(today);
-tomorrow.setDate(today.getDate() + 1);
-  tomorrow.setHours(0, 0, 0, 0); 
-  if (selectedDate > tomorrow) {
+  today.setHours(0, 0, 0, 0);
+  if (selectedDate > today) {
     Swal.fire({
       icon: "error",
       title: "Invalid Date",
